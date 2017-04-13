@@ -1,0 +1,15 @@
+<form id="bottleform">
+    <input name="message" type="text" placeholder="Type your message here" />
+    <input type="submit" value="Throw your bottle" />
+</form>
+
+<script>
+
+    $('#bottleform').submit(function(event) {
+        event.preventDefault();
+        $.post('/bottles/throw', $('#bottleform').serialize(), function(data) {
+            alert(data);
+        });
+    })
+
+</script>
