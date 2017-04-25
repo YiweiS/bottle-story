@@ -26,8 +26,7 @@ router.get('/bottles', function(req, res, next) {
         console.log(results);
 
         res.render('bottles', {
-            'message': 'here is a message',
-            'bottles': results
+            'bottles': results,
         });
     });
 });
@@ -41,11 +40,9 @@ router.get('/bottles/new', function(req, res, next) {
 
         console.log(results);
 
-        res.send('New bottle added');
+        res.send('New bottle thrown');
     });
 });
-
-
 
 
 
@@ -66,14 +63,16 @@ router.post('/bottles/throw', function(req, res, next) {
 
 router.get('/bottles/new/pick', function(req, res, next) {
 
-    var sql = "INSERT INTO bottles VALUES ( null, 'pick a bottle', '2017-04-03 00:00:00', 0)";
+    var sql = 'SELECT * FROM bottles ORDER BY RAND() LIMIT 1';
 
     connection.query(sql, function(error, results, fields) {
         if (error) throw error;
 
         console.log(results);
+        
+        res.render('pickBottle');
 
-        res.send('Pick a bottle');
+        res.send('Open this');
     });
 });
 
