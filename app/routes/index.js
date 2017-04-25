@@ -68,11 +68,8 @@ router.get('/bottles/new/pick', function(req, res, next) {
     connection.query(sql, function(error, results, fields) {
         if (error) throw error;
 
-        console.log(results);
-        
-        res.render('pickBottle');
-
-        res.send('Open this');
+        var bottle = results[0];
+        res.render('pickBottle', { message: bottle.bottletext } );
     });
 });
 
