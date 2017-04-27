@@ -31,9 +31,3 @@ CREATE TABLE users (
 );
 
 -- INSERT THE DATA
-
-INSERT INTO bottles VALUES ( null, 'my name is lilian', '2017-04-01 00:00:00', 0);
-INSERT INTO bottles VALUES ( null, 'hello from mars', '2017-04-02 00:00:00', 0);
-
-INSERT INTO users VALUES ( null, 'claire', '2017-04-01 00:00:00');
-INSERT INTO users VALUES ( null, 'winnie', '2017-04-01 00:00:00');
