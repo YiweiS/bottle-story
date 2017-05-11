@@ -1,0 +1,19 @@
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+
+#map {
+    width: 180%;
+    height: 100vh;
+}
+
+.form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+}

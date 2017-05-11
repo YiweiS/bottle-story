@@ -1,0 +1,16 @@
+<form id="newbottleform">
+    <input name="message" type="text" placeholder="Edit the bottle" />
+    <input type="submit" value="Throw your bottle" color= #166ABA/>
+</form>
+<form method="get" action="/"><button type="submit">throw it</button></form>
+
+<script>
+
+    $('#newbottleform').submit(function(event) {
+        event.preventDefault();
+        $.post('/bottles/pick/edit', $('#newbottleform').serialize(), function(data) {
+            alert(data);
+        });
+    });
+
+</script>
