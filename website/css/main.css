@@ -1,0 +1,87 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right:0px;
+    background-color:pink;
+    padding: 20px;
+}
+header .logo{
+    float: left;
+    font-family: Georige;
+    font-size: 40px;
+    font-weight: normal;
+    font-style: italic;
+    color:indigo; 
+
+}
+header:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+nav{
+    float: right;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav ul li{
+    display: inline-block;
+}
+nav ul li:hover {
+    background: rgba(255,255,255,0.9);
+}
+nav ul li a {
+    text-decoration:none;
+}
+section{
+    height:100vh;
+    min-height:500px;
+}
+section.hero{
+    text-align: center;
+    color: plum;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+section.hero h1{
+    margin:0px;
+    line-height: 95px;
+    font-size: 90px;
+    font-family: Georgia;
+    font-style: italic;
+    font-weight: normal;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0px 0px 8px rgba(255,255,255,0.9);
+}
+section.hero .motto{
+    padding-top:300px;
+}
+section.about{
+    background-color:lightsalmon;
+}
+section.throw{
+    background-color:lightpink;
+}
+section.pickup{
+    background-color:lightcoral;
+}
+footer{
+    height:200px;
+    background-color: ivory;
+    padding:20px;
+    text-align:center;
+}
