@@ -47,17 +47,26 @@ function initMap() {
         zoom: 8
     };
     map = new google.maps.Map(document.querySelector('#map'), options);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c2e7f57586d264e7ebc959d43683bef2ca5d8ef
     map.addListener('click', function (event) {
         var pos = {
             lat: event.latLng.lat(),
             lng: event.latLng.lng()
         };
 
+<<<<<<< HEAD
         var url = 'https://maps.googleapis.com/maps/api/geocode/json?'
+=======
+        var url = 'https://maps.googleapis.com/maps/api/geocode/json?';
+>>>>>>> 3c2e7f57586d264e7ebc959d43683bef2ca5d8ef
         url += 'latlng=' + pos.lat + ',' + pos.lng;
         url += '&key=AIzaSyBMoWJv2wT0g5keBiLwDWDbrMh2QrX0sJ4';
 
         var xhr = new XMLHttpRequest();
+<<<<<<< HEAD
         xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(xhr.responseText);
@@ -65,17 +74,37 @@ function initMap() {
                     var firstResult = response.results[0];
                     var addressComps = firstResult.address_components;
                     for (var i=0; i<addressComps.length; i++) {
+=======
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                var response = JSON.parse(xhr.responseText);
+                if (response.status == 'OK'){
+                    var firstResult = response.results[0];
+                    var addressComps = firstResult.address_components;
+
+                    for(var i=0; i<addressComps.length; i++){
+>>>>>>> 3c2e7f57586d264e7ebc959d43683bef2ca5d8ef
                         if (addressComps[i].types.indexOf('country') != -1){
                             alert(addressComps[i].long_name);
                             break;
                         }
                     }
+<<<<<<< HEAD
                 } else {
                     alert('No Country Found');
                 }
             }
         };
         xhr.open('GET', url, true);
+=======
+                }else{
+                    alert('No Country Found');
+
+                }
+            }
+        };
+        xhr.open('GET',url,true);
+>>>>>>> 3c2e7f57586d264e7ebc959d43683bef2ca5d8ef
         xhr.send();
     })
 }
