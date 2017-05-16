@@ -1,10 +1,12 @@
-<form id="bottleform">
-    <input name="message" type="text" placeholder="Type your message here" />
-    <input type="submit" value="Throw your bottle" color= #166ABA/>
-</form>
-<form method="get" action="/"><button type="submit">Homepage</button></form>
-<form method="get" action="/"><button type="submit">Edit your message</button></form>
-
+<section class="throw">
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+<div class="homebutton"    
+    <form method="get" action="/"><button type="submit">Homepage</button></form>
+</div>
+<div class="editbutton">    
+    <form method="get" action="/"><button type="submit">Edit your message</button></form>
+</div>
+</section>
 <script>
 
     $('#bottleform').submit(function(event) {
