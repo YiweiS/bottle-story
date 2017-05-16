@@ -4,7 +4,7 @@ body {
 }
 
 header {
-  position: fixed;
+  position: relative;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -83,7 +83,7 @@ section.hero h1 {
 }
 
 .throw {
-  background-color: lightskyblue;
+  background-color: lightsteelblue;
 }
 
 .pickup {
@@ -92,7 +92,7 @@ section.hero h1 {
 
 footer {
   height: 200px;
-  background-color: lightpink;
+  background-color: lightsteelblue;
   padding: 20px;
   text-align: center;
 }
