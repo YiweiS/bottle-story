@@ -3,6 +3,7 @@
     <input type="submit" value="Throw your bottle" color= #166ABA/>
 </form>
 <form method="get" action="/"><button type="submit">Homepage</button></form>
+<form method="get" action="/"><button type="submit">Edit your message</button></form>
 
 <script>
 
@@ -10,7 +11,7 @@
         event.preventDefault();
         $.post('/bottles/throw', $('#bottleform').serialize(), function(data) {
             alert(data);
-        });
+        });   
     });
 
 </script>
