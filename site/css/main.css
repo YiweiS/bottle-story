@@ -47,7 +47,6 @@ section {
 }
 section.hero {
     text-align: center;
-    background-color: lightskyblue;
     background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -57,14 +56,11 @@ section.hero .motto {
     padding-top: 300px;
 }
 section.hero h1 {
-    margin: 0px;
-    line-height: 95px;
-    font-size: 90px;
-    font-family: Georgia;
-    font-style: italic;
-    font-weight: normal;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 10px 0px 20px rgba(255, 255, 255, 0.9);
+    text-align: center;
+    background-image: url('../img/bg3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 section.about {
     background-color: lightblue;    

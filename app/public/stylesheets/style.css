@@ -39,22 +39,31 @@ nav ul li {
   font-size: 15px; }
 
 section {
-  height: 100vh;
-  min-height: 500px; }
+  text-align: center; }
 
-section.throw div {
-  top: 100px;
-  left: 0px;
-  right: 700px; }
+section div {
+  height: 100vh;
+  min-height: 100px;
+  background-size: center;
+  background-image: url("../images/bg3.jpg");
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+section h1 {
+  margin: 0px;
+  line-height: 35px;
+  font-size: 30px;
+  font-family: Georgia;
+  font-style: italic;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 10px 0px 20px rgba(255, 255, 255, 0.9); }
 
 .throw {
-  background-image: url("../images/background-throw.png");
+  background-image: url("/images/background-throw.png");
   background-repeat: no-repeat;
   background-size: 90% 90%;
   background-position: center center; }
-
-.pickup {
-  background-color: lightyellow; }
 
 footer {
   height: 200px;
