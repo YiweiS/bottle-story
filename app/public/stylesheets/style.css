@@ -8,15 +8,15 @@ header {
   left: 0px;
   right: 0px;
   background-color: lightsteelblue;
-  padding: 20px; }
+  padding: 10px;
+  color: ivory; }
 
-.logo {
-  float: left;
+header div {
+  float: left top;
   font-family: Georgia;
-  font-size: 40px;
+  font-style: oblique;
   font-weight: normal;
-  font-style: italic;
-  color: lightsteelblue; }
+  font-size: 35px; }
 
 header:after {
   content: ' ';
@@ -32,23 +32,20 @@ nav ul {
   padding: 0px; }
 
 nav ul li {
-  display: inline-block; }
-
-nav ul li a {
-  text-decoration: none; }
-
-nav ul li:hover {
-  background-color: rgba(255, 255, 255, 0); }
+  display: inline-block;
+  font-family: Georgia;
+  font-style: oblique;
+  font-weight: normal;
+  font-size: 15px; }
 
 section {
   height: 100vh;
   min-height: 500px; }
 
 section.throw div {
-  position: relative;
-  top: 700px;
-  left: 700px;
-  right: 0px; }
+  top: 100px;
+  left: 0px;
+  right: 700px; }
 
 .throw {
   background-image: url("../images/background-throw.png");
