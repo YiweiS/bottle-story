@@ -74,5 +74,18 @@ router.get('/bottles/new/pick', function(req, res, next) {
 });
 
 
+router.get('/bottles/edit', function(req, res, next){
+    res.render('throwBottle');
+});
+
+router.post('/bottles/edit', function(req, res, next) {
+    var sql = `INSERT INTO bottles VALUES ( null, '${ req.body.message }', '2017-04-03 00:00:00', 0)`;
+
+    connection.query(sql, function(error, results, fields) {
+        if (error) throw error;
+        res.send('Bottle thrown');
+    });
+});
+
 
 module.exports = router;

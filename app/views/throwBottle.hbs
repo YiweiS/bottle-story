@@ -1,19 +1,70 @@
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+<canvas id="bottleCanvas" width="850" height="1100"></canvas>
+
+<button id="save">Save</button>
+<script>
+    var stage;
+    var input;
+
+    function init() {
+        stage = new createjs.Stage('bottleCanvas');
+        stage.enableDOMEvents(true);
+
+		stage.on("stagemousedown", onStageClicked);
+		
+        var paperImage = new Image();
+        paperImage.src = '/images/background-throw.png';
+        paperImage.onload = handleImageLoad;
+    }
+    
+    function handleImageLoad() {
+        var image = event.target;
+        var bitmap = new createjs.Bitmap(image);
+        stage.addChild(bitmap);
+        stage.update();
+    }
+    
+    function onStageClicked(event) {
+        var x = event.stageX;
+        var y = event.stageY;
+        
+        input = new createjs.Text("", "20px Arial", "#000000");
+        input.x = x;
+        input.y = y;
+        stage.addChild(input);
+        stage.update();
+    }
+    
+    function uploadPaper() {
+        var canvas = document.getElementById('bottleCanvas');
+        var dataURL = canvas.toDataURL();
+        
+        $.post('/bottles/throw', { message: dataURL }, function(data) {
+            alert(data);
+        });  
+    }
+    
+    document.getElementById('save').addEventListener('click', uploadPaper);
+    
+    document.addEventListener('keydown', function(event) {
+        if (input) {
+            input.text += event.key;
+            stage.update();
+        }
+    })
+    window.onload = init;
+    
+</script>
+
 <section class="throw">
     <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
-<div class="homebutton"    
     <form method="get" action="/"><button type="submit">Homepage</button></form>
-</div>
-<div class="editbutton">    
-    <form method="get" action="/"><button type="submit">Edit your message</button></form>
-</div>
-</section>
+    <form method="get" action="/bottles/edit"><button type="submit">Edit your message</button></form>
+    <form method="submit" action="/bottles/throw"><button type="SUBMIT">Submit</button></form>
+
 <script>
 
     $('#bottleform').submit(function(event) {
-        event.preventDefault();
-        $.post('/bottles/throw', $('#bottleform').serialize(), function(data) {
-            alert(data);
-        });   
+        event.preventDefault(); 
     });
-
 </script>

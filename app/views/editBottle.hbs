@@ -1,0 +1,13 @@
+
+<script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+<script>
+<button onclick="loadImage();" class="load-image">Load Image</button>
+function loadImage() {
+  var preload = new createjs.LoadQueue();
+  preload.addEventListener("fileload", handleFileComplete);
+  preload.loadFile('imagePath.jpg');
+}
+function handleFileComplete(event) {
+  document.body.appendChild(event.result);
+}
+</script>
