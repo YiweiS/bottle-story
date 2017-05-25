@@ -18,72 +18,40 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/bottles', function(req, res, next) {
-
-    connection.query('SELECT * FROM bottles', function(error, results, fields) {
-        if (error) throw error;
-
-        console.log(results);
-
-        res.render('bottles', {
-            'bottles': results,
-        });
-    });
-});
-
-router.get('/bottles/new', function(req, res, next) {
-
-    var sql = "INSERT INTO bottles VALUES ( null, 'welcome to bottles story', '2017-04-03 00:00:00', 0)";
-
-    connection.query(sql, function(error, results, fields) {
-        if (error) throw error;
-
-        console.log(results);
-
-        res.send('New bottle thrown');
-    });
-});
-
-
-
+/* GET throw a new bottle. */
 router.get('/bottles/throw', function(req, res, next) {
     res.render('throwBottle');
 });
 
+/* POST throw a new/edited bottle. */
 router.post('/bottles/throw', function(req, res, next) {
-    var sql = `INSERT INTO bottles VALUES ( null, '${ req.body.message }', '2017-04-03 00:00:00', 0)`;
-
+    var sql = null;
+    if (req.body.bottleid) {
+        sql = `UPDATE bottles SET bottleImage = '${ req.body.message }' WHERE bottleid = ${req.body.bottleid}`;
+    } else {
+        sql = `INSERT INTO bottles VALUES ( null, '${ req.body.message }', '2017-04-03 00:00:00', 0)`;
+    }
+    
     connection.query(sql, function(error, results, fields) {
         if (error) throw error;
         res.send('Bottle thrown');
     });
 });
 
-
-
-router.get('/bottles/new/pick', function(req, res, next) {
-
+/* GET display random bottle. */
+router.get('/bottles/pickup', function(req, res, next) {
     var sql = 'SELECT * FROM bottles ORDER BY RAND() LIMIT 1';
-
     connection.query(sql, function(error, results, fields) {
         if (error) throw error;
-
-        var bottle = results[0];
-        res.render('pickBottle', { message: bottle.bottletext } );
-    });
-});
-
-
-router.get('/bottles/edit', function(req, res, next){
-    res.render('throwBottle');
-});
-
-router.post('/bottles/edit', function(req, res, next) {
-    var sql = `INSERT INTO bottles VALUES ( null, '${ req.body.message }', '2017-04-03 00:00:00', 0)`;
-
-    connection.query(sql, function(error, results, fields) {
-        if (error) throw error;
-        res.send('Bottle thrown');
+        if (results.length > 0) {
+            var bottle = results[0];
+            res.render('pickBottle', { 
+                bottleid: bottle.bottleid,
+                bottleimage: bottle.bottleimage 
+            });
+        } else {
+            res.redirect('/');
+        }
     });
 });
 

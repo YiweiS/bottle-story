@@ -19,7 +19,7 @@ USE bottlestory;
 
 CREATE TABLE bottles (
     bottleid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    bottletext VARCHAR(5000) NOT NULL,
+    bottleimage MEDIUMBLOB NOT NULL,
     datecreated DATETIME NOT NULL,
     throwcount INT NOT NULL
 );
