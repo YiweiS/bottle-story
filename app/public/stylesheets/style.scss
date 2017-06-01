@@ -45,10 +45,6 @@ nav ul li {
   font-size: 15px;
 }
 
-section button {
-  position: relative;
-}
-
 section p{
   font-size: 20px;
   font-weight: normal;
@@ -87,17 +83,18 @@ footer {
 }
 
 button {
-  color: white;
-  border: 2px solid red;
-  background-color: blue;
+  color: DodgerBlue;
+  border: 2px solid DodgerBlue;
+  background-color: white;
   padding: 10px 20px 10px 20px;
   border-radius: 20px;
 }
 
 input[type="button"] {
-  color: white;
-  border: 2px solid red;
-  background-color: blue;
+  color: DodgerBlue;
+  border: 2px solid DodgerBlue;
+  background-color: white;
   padding: 10px 20px 10px 20px;
   border-radius: 20px;
 }
+
